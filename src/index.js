@@ -1,5 +1,6 @@
 import './style.css';
 import '@fortawesome/free-solid-svg-icons';
+
 const todo = ['go to gym', 'Study', 'work'];
 
 const displayTodos = (todo) => {
