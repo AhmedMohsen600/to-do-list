@@ -45,12 +45,10 @@ button {
 }
 
 .input {
-  padding: 20px;
   border: 0;
   font-size: 17px;
   align-self: flex-start;
-  width: 100%;
-  border-bottom: 1px solid #eee;
+  width: 90%;
 }
 
 input:focus {
@@ -78,4 +76,14 @@ h3 {
 
 article {
   width: 100%;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.fa-turn-down {
+  transform: rotate(90deg);
+  cursor: pointer;
 }
