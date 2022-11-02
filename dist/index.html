@@ -1,1 +1,38 @@
-<head><script defer src="main.js"></script></head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  <script defer src="runtime.js"></script><script defer src="main.js"></script></head>
+  <body>
+    <section class="hero">
+      <div class="todo">
+        <h3>Today's to do <i class="fa-solid fa-arrows-rotate"></i></h3>
+        <article>
+          <input class="input" placeholder="Add to your list..." type="text" />
+          <i class="fa-solid fa-turn-down"></i>
+        </article>
+        <ul class="list">
+          <li class="item">
+            <input type="checkbox" />
+            <p>finish something</p>
+          </li>
+          <li class="item">
+            <input class="checkbox" type="checkbox" />
+            <p>finish something</p>
+          </li>
+        </ul>
+        <button type="button">Clear all completed</button>
+      </div>
+    </section>
+  </body>
+</html>
