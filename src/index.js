@@ -28,21 +28,12 @@ class UI {
     UI.updateStatus();
   };
 
-  static generateId = () =>
-    Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
+  static generateId = () => Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
 
   static clearValue = () => {
     document.querySelector('.input').value = '';
-  };
-  static updateStatus = () => {
-    const nono = document.querySelector('ul');
-    const children = nono.childNodes;
-    children.forEach((child) => {
-      const div = child.childNodes[1];
-      console.log(div);
-    });
   };
 }
 
