@@ -25,14 +25,24 @@ class UI {
     });
     ul.innerHTML = content;
     content = '';
+    UI.updateStatus();
   };
 
-  static generateId = () => Math.floor((1 + Math.random()) * 0x10000)
-    .toString(16)
-    .substring(1);
+  static generateId = () =>
+    Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
 
   static clearValue = () => {
     document.querySelector('.input').value = '';
+  };
+  static updateStatus = () => {
+    const nono = document.querySelector('ul');
+    const children = nono.childNodes;
+    children.forEach((child) => {
+      const div = child.childNodes[1];
+      console.log(div);
+    });
   };
 }
 
@@ -75,19 +85,3 @@ document.querySelector('.list').addEventListener('click', (e) => {
   const { id } = e.target.parentElement;
   if (e.target.classList.contains('fa-trash')) Store.removeTodo(id);
 });
-
-// UI.checkBox();
-
-// localStorage.clear();
-
-// static checkBox = () => {
-//   let todos = Store.getTodos();
-//   let check = true;
-//   const koko = document.querySelectorAll('.bdan');
-//   console.log(koko);
-
-//   todos.map((todo) => {
-//     check ? { ...todo, completed: true } : todo;
-//   });
-//   console.log(todos);
-// };
