@@ -31,9 +31,19 @@ ul {
   list-style: none;
   display: flex;
   gap: 16px;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   padding: 20px;
   border-bottom: 1px solid #eee;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  border: 0;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
 }
 
 button {
@@ -85,5 +95,9 @@ article {
 
 .fa-turn-down {
   transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.fa-trash {
   cursor: pointer;
 }
