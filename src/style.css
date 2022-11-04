@@ -101,3 +101,7 @@ article {
 .fa-trash {
   cursor: pointer;
 }
+
+.line {
+  text-decoration: line-through;
+}

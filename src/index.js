@@ -10,22 +10,18 @@ class Todo {
 }
 class UI {
   static displayTodos = (todos) => {
-    const ul = document.querySelector('ul');
-    if (!todos.length) ul.innerHTML = '';
-    let content = '';
+    const ul = document.querySelector('.list');
+    ul.innerHTML = '';
     todos.forEach((tod) => {
-      content += `
+      ul.innerHTML += `
         <li id=${tod.id} class="item">
           <div class='group'>
-            <input class='bdan' name='checkbox' type="checkbox" />
-            <p contenteditable="true">${tod.desc}</p>
+            <input id=${tod.id} class='bdan' name='checkbox' type="checkbox" />
+            <p id=${tod.id} class='text' contenteditable="true">${tod.desc}</p>
           </div>
           <i class="fa-solid fa-trash"></i>
         </li>`;
     });
-    ul.innerHTML = content;
-    content = '';
-    UI.updateStatus();
   };
 
   static generateId = () => Math.floor((1 + Math.random()) * 0x10000)
@@ -75,4 +71,35 @@ document.querySelector('.fa-turn-down').addEventListener('click', () => {
 document.querySelector('.list').addEventListener('click', (e) => {
   const { id } = e.target.parentElement;
   if (e.target.classList.contains('fa-trash')) Store.removeTodo(id);
+});
+
+document.querySelector('.list').addEventListener('click', (event) => {
+  if (event.target.classList.contains('bdan')) {
+    let todos = Store.getTodos();
+    event.target.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        document.querySelectorAll('p').forEach((pTag) => {
+          if (pTag.id === e.target.id) pTag.classList.add('line');
+        });
+      } else {
+        document.querySelectorAll('p').forEach((pTag) => {
+          if (pTag.id === e.target.id) pTag.classList.remove('line');
+        });
+      }
+
+      todos = todos.map((todo) => {
+        if (!e.target.checked && e.target.id === todo.id) return { ...todo, completed: false };
+        if (e.target.checked && e.target.id === todo.id) return { ...todo, completed: true };
+        return todo;
+      });
+      localStorage.setItem('todos', JSON.stringify(todos));
+    });
+  }
+});
+
+document.querySelector('button').addEventListener('click', () => {
+  let todos = Store.getTodos();
+  todos = todos.filter((todo) => todo.completed === false);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  UI.displayTodos(todos);
 });
