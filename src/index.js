@@ -33,8 +33,7 @@ class UI {
     .substring(1);
 
   static clearValue = () => {
-    const inputValue = document.querySelector('.input');
-    return inputValue.value;
+    document.querySelector('.input').value = '';
   };
 }
 
