@@ -10,7 +10,6 @@ class Todo {
 }
 class UI {
   static displayTodos = (todos) => {
-    console.log({ todos });
     const ul = document.querySelector('.list');
     ul.innerHTML = '';
     todos.forEach((tod) => {
@@ -29,13 +28,13 @@ class UI {
     });
   };
 
-  static generateId = () =>
-    Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
+  static generateId = () => Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
 
   static clearValue = () => {
-    document.querySelector('.input').value = '';
+    const inputValue = document.querySelector('.input');
+    return inputValue.value;
   };
 }
 
@@ -51,7 +50,6 @@ class Store {
     const todos = Store.getTodos();
     todos.push(todo);
     localStorage.setItem('todos', JSON.stringify(todos));
-    console.log('add from local', todos);
     UI.displayTodos(todos);
   };
 
@@ -82,29 +80,27 @@ document.querySelector('.list').addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-trash')) Store.removeTodo(id);
 });
 
+const changeStateofToDos = (todos, { checked, id }) => todos.map((todo) => {
+  if (!checked && id === todo.id) return { ...todo, completed: false };
+  if (checked && id === todo.id) return { ...todo, completed: true };
+  return todo;
+});
+
 document.querySelector('.list').addEventListener('click', (event) => {
   if (event.target.classList.contains('bdan')) {
     let todos = Store.getTodos();
     event.target.addEventListener('change', (e) => {
-      if (e.target.checked)
-        //ush array set
+      if (e.target.checked) {
         document.querySelectorAll('p').forEach((pTag) => {
           if (pTag.id === e.target.id) pTag.classList.add('line');
         });
-      //TODO LOOP TO BE CONDS
-      //pop from array
-      else
+      } else {
         document.querySelectorAll('p').forEach((pTag) => {
           if (pTag.id === e.target.id) pTag.classList.remove('line');
         });
+      }
 
-      todos = todos.map((todo) => {
-        if (!e.target.checked && e.target.id === todo.id)
-          return { ...todo, completed: false };
-        if (e.target.checked && e.target.id === todo.id)
-          return { ...todo, completed: true };
-        return todo;
-      });
+      todos = changeStateofToDos(todos, e.target);
       localStorage.setItem('todos', JSON.stringify(todos));
     });
   }
