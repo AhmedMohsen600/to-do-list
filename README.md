@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awosome books
+# To-do-list
 
 > This is just a simple project under the supervision of the Microverse platform that tests how descriptive our repo instruction (pull requests description, readme file, html & css and javascirpt), also Linters were installed in the project to check for internal code errors and make the code as clean as possible.
 
