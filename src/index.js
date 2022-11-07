@@ -20,7 +20,7 @@ class UI {
         tod.completed && 'checked'
       } />
             <p id=${tod.id} class='${
-        tod.completed ? 'line' : ''
+        tod.completed && 'line'
       }' contenteditable="true">${tod.desc}</p>
           </div>
           <i class="fa-solid fa-trash"></i>
@@ -34,6 +34,18 @@ class UI {
 
   static clearValue = () => {
     document.querySelector('.input').value = '';
+  };
+
+  static addLineThrowToDos = ({ checked, id }) => {
+    if (checked) {
+      document.querySelectorAll('p').forEach((pTag) => {
+        if (pTag.id === id) pTag.classList.add('line');
+      });
+    } else {
+      document.querySelectorAll('p').forEach((pTag) => {
+        if (pTag.id === id) pTag.classList.remove('line');
+      });
+    }
   };
 }
 
@@ -58,8 +70,15 @@ class Store {
     localStorage.setItem('todos', JSON.stringify(todos));
     UI.displayTodos(todos);
   };
+
+  static changeStateofToDos = (todos, { checked, id }) => todos.map((todo) => {
+    if (!checked && id === todo.id) return { ...todo, completed: false };
+    if (checked && id === todo.id) return { ...todo, completed: true };
+    return todo;
+  });
 }
 
+// EVENTS
 document.addEventListener('DOMContentLoaded', () => {
   const todos = Store.getTodos();
   UI.displayTodos(todos);
@@ -68,9 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelector('.fa-turn-down').addEventListener('click', () => {
   const input = document.querySelector('.input').value;
   const newTodo = new Todo(input, false, UI.generateId());
-
   Store.addTodo(newTodo);
-
   UI.clearValue();
 });
 
@@ -79,27 +96,12 @@ document.querySelector('.list').addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-trash')) Store.removeTodo(id);
 });
 
-const changeStateofToDos = (todos, { checked, id }) => todos.map((todo) => {
-  if (!checked && id === todo.id) return { ...todo, completed: false };
-  if (checked && id === todo.id) return { ...todo, completed: true };
-  return todo;
-});
-
 document.querySelector('.list').addEventListener('click', (event) => {
   if (event.target.classList.contains('bdan')) {
     let todos = Store.getTodos();
     event.target.addEventListener('change', (e) => {
-      if (e.target.checked) {
-        document.querySelectorAll('p').forEach((pTag) => {
-          if (pTag.id === e.target.id) pTag.classList.add('line');
-        });
-      } else {
-        document.querySelectorAll('p').forEach((pTag) => {
-          if (pTag.id === e.target.id) pTag.classList.remove('line');
-        });
-      }
-
-      todos = changeStateofToDos(todos, e.target);
+      UI.addLineThrowToDos(e.target);
+      todos = Store.changeStateofToDos(todos, e.target);
       localStorage.setItem('todos', JSON.stringify(todos));
     });
   }
