@@ -28,10 +28,9 @@ class UI {
     });
   };
 
-  static generateId = () =>
-    Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
+  static generateId = () => Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
 
   static clearValue = () => {
     document.querySelector('.input').value = '';
@@ -72,12 +71,11 @@ class Store {
     UI.displayTodos(todos);
   };
 
-  static changeStateofToDos = (todos, { checked, id }) =>
-    todos.map((todo) => {
-      if (!checked && id === todo.id) return { ...todo, completed: false };
-      else if (checked && id === todo.id) return { ...todo, completed: true };
-      return todo;
-    });
+  static changeStateofToDos = (todos, { checked, id }) => todos.map((todo) => {
+    if (!checked && id === todo.id) return { ...todo, completed: false };
+    if (checked && id === todo.id) return { ...todo, completed: true };
+    return todo;
+  });
 }
 
 // EVENTS
