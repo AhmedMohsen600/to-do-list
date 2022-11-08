@@ -12,6 +12,7 @@
 - javascript
 - DOM
 - javascirpt classes
+- Webpack
 
 ## Getting Started
 
