@@ -36,7 +36,7 @@ class UI {
     document.querySelector('.input').value = '';
   };
 
-  static addLineThrowToDos = ({ checked, id }) => {
+  static addLineThroughToDos = ({ checked, id }) => {
     if (checked) {
       document.querySelectorAll('p').forEach((pTag) => {
         if (pTag.id === id) pTag.classList.add('line');
@@ -76,6 +76,17 @@ class Store {
     if (checked && id === todo.id) return { ...todo, completed: true };
     return todo;
   });
+
+  static handelCheckBox = (checkbox) => {
+    if (checkbox.classList.contains('bdan')) {
+      let todos = Store.getTodos();
+      checkbox.addEventListener('change', (e) => {
+        UI.addLineThroughToDos(e.target);
+        todos = Store.changeStateofToDos(todos, e.target);
+        localStorage.setItem('todos', JSON.stringify(todos));
+      });
+    }
+  };
 }
 
 // EVENTS
@@ -91,20 +102,10 @@ document.querySelector('.fa-turn-down').addEventListener('click', () => {
   UI.clearValue();
 });
 
-document.querySelector('.list').addEventListener('click', (e) => {
-  const { id } = e.target.parentElement;
-  if (e.target.classList.contains('fa-trash')) Store.removeTodo(id);
-});
-
 document.querySelector('.list').addEventListener('click', (event) => {
-  if (event.target.classList.contains('bdan')) {
-    let todos = Store.getTodos();
-    event.target.addEventListener('change', (e) => {
-      UI.addLineThrowToDos(e.target);
-      todos = Store.changeStateofToDos(todos, e.target);
-      localStorage.setItem('todos', JSON.stringify(todos));
-    });
-  }
+  const { id } = event.target.parentElement;
+  if (event.target.classList.contains('fa-trash')) Store.removeTodo(id);
+  Store.handelCheckBox(event.target);
 });
 
 document.querySelector('button').addEventListener('click', () => {
