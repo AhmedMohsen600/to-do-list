@@ -1,8 +1,9 @@
 import UI from './ui.js';
 
+let todos = [];
+
 class Store {
   static getTodos = () => {
-    let todos;
     if (!localStorage.getItem('todos')) todos = [];
     else todos = JSON.parse(localStorage.getItem('todos'));
     return todos;
@@ -10,17 +11,28 @@ class Store {
 
   static addTodo = (todo) => {
     const todos = Store.getTodos();
+    this.add(todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    UI.displayTodos(todos);
+    return todos;
+  };
+
+  static add(todo) {
     todos.push(todo);
+    return todos;
+  }
+
+  static removeTodo = (id) => {
+    const todos = Store.getTodos();
+    this.remove(id);
     localStorage.setItem('todos', JSON.stringify(todos));
     UI.displayTodos(todos);
   };
 
-  static removeTodo = (id) => {
-    let todos = Store.getTodos();
+  static remove(id) {
     todos = todos.filter((todo) => todo.id !== id);
-    localStorage.setItem('todos', JSON.stringify(todos));
-    UI.displayTodos(todos);
-  };
+    return todos;
+  }
 
   static changeStateofToDos = (todos, { checked, id }) => todos.map((todo) => {
     if (!checked && id === todo.id) return { ...todo, completed: false };
