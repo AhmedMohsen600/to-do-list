@@ -9,20 +9,21 @@ class UI {
               <input id=${
                 tod.id
               } class='bdan' name='checkbox' type="checkbox" ${
-                tod.completed && 'checked'
-              } />
+        tod.completed && 'checked'
+      } />
               <p id=${tod.id} class='${
-                tod.completed && 'line'
-              }' contenteditable="true">${tod.desc}</p>
+        tod.completed && 'line'
+      }' contenteditable="true">${tod.desc}</p>
             </div>
             <i class="fa-solid fa-trash"></i>
           </li>`;
     });
   };
 
-  static generateId = () => Math.floor((1 + Math.random()) * 0x10000)
-    .toString(16)
-    .substring(1);
+  static generateId = () =>
+    Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
 
   static clearValue = () => {
     document.querySelector('.input').value = '';

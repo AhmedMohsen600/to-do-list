@@ -11,16 +11,11 @@ class Store {
 
   static addTodo = (todo) => {
     const todos = Store.getTodos();
-    this.add(todo);
+    todos.push(todo);
     localStorage.setItem('todos', JSON.stringify(todos));
     UI.displayTodos(todos);
     return todos;
   };
-
-  static add(todo) {
-    todos.push(todo);
-    return todos;
-  }
 
   static removeTodo = (id) => {
     const todos = Store.getTodos();
@@ -34,11 +29,12 @@ class Store {
     return todos;
   }
 
-  static changeStateofToDos = (todos, { checked, id }) => todos.map((todo) => {
-    if (!checked && id === todo.id) return { ...todo, completed: false };
-    if (checked && id === todo.id) return { ...todo, completed: true };
-    return todo;
-  });
+  static changeStateofToDos = (todos, { checked, id }) =>
+    todos.map((todo) => {
+      if (!checked && id === todo.id) return { ...todo, completed: false };
+      if (checked && id === todo.id) return { ...todo, completed: true };
+      return todo;
+    });
 
   static handelCheckBox = (checkbox) => {
     if (checkbox.classList.contains('bdan')) {
