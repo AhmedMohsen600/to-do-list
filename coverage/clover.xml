@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1668076843368" clover="3.2.0">
-  <project timestamp="1668076843368" name="All files">
-    <metrics statements="49" coveredstatements="17" conditionals="22" coveredconditionals="0" methods="18" coveredmethods="4" elements="89" coveredelements="21" complexity="0" loc="49" ncloc="49" packages="1" files="3" classes="3"/>
+<coverage generated="1668097119368" clover="3.2.0">
+  <project timestamp="1668097119368" name="All files">
+    <metrics statements="50" coveredstatements="18" conditionals="22" coveredconditionals="2" methods="18" coveredmethods="2" elements="90" coveredelements="22" complexity="0" loc="50" ncloc="50" packages="1" files="3" classes="3"/>
     <file name="store.js" path="/Users/ahmedabdelmohsen/microverse/to-do-list/src/modules/store.js">
-      <metrics statements="32" coveredstatements="10" conditionals="12" coveredconditionals="0" methods="10" coveredmethods="3"/>
+      <metrics statements="32" coveredstatements="14" conditionals="12" coveredconditionals="2" methods="10" coveredmethods="2"/>
       <line num="3" count="1" type="stmt"/>
       <line num="6" count="1" type="stmt"/>
-      <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="8" count="0" type="stmt"/>
-      <line num="9" count="0" type="stmt"/>
+      <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
       <line num="12" count="1" type="stmt"/>
-      <line num="13" count="0" type="stmt"/>
-      <line num="14" count="0" type="stmt"/>
-      <line num="15" count="0" type="stmt"/>
-      <line num="16" count="0" type="stmt"/>
-      <line num="17" count="0" type="stmt"/>
-      <line num="21" count="2" type="stmt"/>
-      <line num="22" count="2" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="22" count="0" type="stmt"/>
       <line num="25" count="1" type="stmt"/>
       <line num="26" count="0" type="stmt"/>
       <line num="27" count="0" type="stmt"/>
       <line num="28" count="0" type="stmt"/>
       <line num="29" count="0" type="stmt"/>
-      <line num="33" count="3" type="stmt"/>
-      <line num="34" count="2" type="stmt"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
       <line num="37" count="1" type="stmt"/>
       <line num="38" count="0" type="stmt"/>
       <line num="39" count="0" type="cond" truecount="0" falsecount="4"/>
@@ -38,27 +38,28 @@
       <line num="50" count="0" type="stmt"/>
     </file>
     <file name="todo.js" path="/Users/ahmedabdelmohsen/microverse/to-do-list/src/modules/todo.js">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="2" type="stmt"/>
-      <line num="4" count="2" type="stmt"/>
-      <line num="5" count="2" type="stmt"/>
+      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
     </file>
     <file name="ui.js" path="/Users/ahmedabdelmohsen/microverse/to-do-list/src/modules/ui.js">
-      <metrics statements="14" coveredstatements="4" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <metrics statements="15" coveredstatements="4" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="0" type="stmt"/>
       <line num="4" count="0" type="stmt"/>
       <line num="5" count="0" type="stmt"/>
       <line num="6" count="0" type="stmt"/>
       <line num="23" count="1" type="stmt"/>
-      <line num="27" count="1" type="stmt"/>
-      <line num="28" count="0" type="stmt"/>
-      <line num="31" count="1" type="stmt"/>
-      <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="33" count="0" type="stmt"/>
-      <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="37" count="0" type="stmt"/>
-      <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="29" count="0" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="34" count="0" type="stmt"/>
+      <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="38" count="0" type="stmt"/>
+      <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
     </file>
   </project>
 </coverage>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.55% </span>
+                <span class="strong">41.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/36</span>
+                <span class='fraction'>15/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">16.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>2/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/10</span>
+                <span class='fraction'>2/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">31.25% </span>
+                <span class="strong">43.75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/32</span>
+                <span class='fraction'>14/32</span>
             </div>
         
             
@@ -125,7 +125,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,24 +148,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -180,23 +180,23 @@
 let todos = [];
 &nbsp;
 class Store {
-  static getTodos = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >    if (!localStorage.getItem('todos')) <span class="cstat-no" title="statement not covered" >todos = [];</span></span>
-    else <span class="cstat-no" title="statement not covered" >todos = JSON.parse(localStorage.getItem('todos'));</span>
-<span class="cstat-no" title="statement not covered" >    return todos;</span>
-  };
-&nbsp;
-  static addTodo = <span class="fstat-no" title="function not covered" >(t</span>odo) =&gt; {
-    const todos = <span class="cstat-no" title="statement not covered" >Store.getTodos();</span>
-<span class="cstat-no" title="statement not covered" >    this.add(todo);</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem('todos', JSON.stringify(todos));</span>
-<span class="cstat-no" title="statement not covered" >    UI.displayTodos(todos);</span>
-<span class="cstat-no" title="statement not covered" >    return todos;</span>
-  };
-&nbsp;
-  static add(todo) {
-    todos.push(todo);
+  static getTodos = () =&gt; {
+    if (!localStorage.getItem('todos')) todos = [];
+    else todos = JSON.parse(localStorage.getItem('todos'));
     return todos;
+  };
+&nbsp;
+  static addTodo = (todo) =&gt; {
+    const todos = Store.getTodos();
+    todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    UI.displayTodos(todos);
+    return todos;
+  };
+&nbsp;
+<span class="fstat-no" title="function not covered" >  st</span>atic add(todo) {
+<span class="cstat-no" title="statement not covered" >    todos.push(todo);</span>
+<span class="cstat-no" title="statement not covered" >    return todos;</span>
   }
 &nbsp;
   static removeTodo = <span class="fstat-no" title="function not covered" >(i</span>d) =&gt; {
@@ -206,9 +206,9 @@ class Store {
 <span class="cstat-no" title="statement not covered" >    UI.displayTodos(todos);</span>
   };
 &nbsp;
-  static remove(id) {
-    todos = todos.filter((todo) =&gt; todo.id !== id);
-    return todos;
+<span class="fstat-no" title="function not covered" >  st</span>atic remove(id) {
+<span class="cstat-no" title="statement not covered" >    todos = todos.filter(<span class="fstat-no" title="function not covered" >(t</span>odo) =&gt; <span class="cstat-no" title="statement not covered" >todo.id !== id)</span>;</span>
+<span class="cstat-no" title="statement not covered" >    return todos;</span>
   }
 &nbsp;
   static changeStateofToDos = <span class="fstat-no" title="function not covered" >(t</span>odos, { checked, id }) =&gt;
@@ -238,7 +238,7 @@ export default Store;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-10T10:40:43.361Z
+                at 2022-11-10T16:18:39.358Z
             </div>
         <script src="prettify.js"></script>
         <script>
