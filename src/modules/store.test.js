@@ -1,28 +1,31 @@
-jest.mock('./ui');
 import Todo from './todo.js';
 import Store from './store.js';
-import UI from './ui';
+import UI from './ui.js';
+
+jest.mock('./ui');
 
 describe('adding tests', () => {
   test('should add todo successfully', () => {
-    const result = Store.addTodo({ test: 'todo item' });
-    expect(result).toEqual([{ test: 'todo item' }]);
+    const todo = new Todo('study', false, 1212);
+
+    const result = Store.addTodo(todo);
+    expect(result).toEqual([{ desc: 'study', completed: false, id: 1212 }]);
+    expect(result).toHaveLength(1);
     expect(localStorage.getItem('todos')).toEqual(
-      JSON.stringify([{ test: 'todo item' }])
+      JSON.stringify([{ desc: 'study', completed: false, id: 1212 }]),
     );
     expect(UI.displayTodos).toBeCalled();
     expect(UI.displayTodos).toBeCalledWith(Store.getTodos());
   });
 });
 
-// describe('removing tests', () => {
-//   test('remove one new item to the list', () => {
-//     const length = Store.remove(2);
-//     expect(length).toHaveLength(1);
-//   });
-
-//   test('remove one new item to the list', () => {
-//     const length = Store.remove(1);
-//     expect(length).toHaveLength(0);
-//   });
-// });
+describe('remving tests', () => {
+  test('should remove todo successfully', () => {
+    const result = Store.removeTodo(1212);
+    expect(result).toEqual([]);
+    expect(result).toHaveLength(0);
+    expect(localStorage.getItem('todos')).toEqual(JSON.stringify([]));
+    expect(UI.displayTodos).toBeCalled();
+    expect(UI.displayTodos).toBeCalledWith(Store.getTodos());
+  });
+});
