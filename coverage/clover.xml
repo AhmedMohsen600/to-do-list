@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1668166827471" clover="3.2.0">
-  <project timestamp="1668166827471" name="All files">
+<coverage generated="1668167382236" clover="3.2.0">
+  <project timestamp="1668167382236" name="All files">
     <metrics statements="44" coveredstatements="25" conditionals="22" coveredconditionals="2" methods="16" coveredmethods="5" elements="82" coveredelements="32" complexity="0" loc="44" ncloc="44" packages="1" files="3" classes="3"/>
     <file name="store.js" path="/Users/ahmedabdelmohsen/microverse/to-do-list/src/modules/store.js">
       <metrics statements="27" coveredstatements="18" conditionals="12" coveredconditionals="2" methods="8" coveredmethods="4"/>
