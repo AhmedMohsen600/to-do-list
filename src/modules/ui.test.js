@@ -1,4 +1,4 @@
-import UI from './ui';
+import UI from './ui.js';
 
 describe('UI', () => {
   test('should add todo to UI', () => {
