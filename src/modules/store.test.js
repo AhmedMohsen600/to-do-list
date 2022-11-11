@@ -12,7 +12,7 @@ describe('adding tests', () => {
     expect(result).toEqual([{ desc: 'study', completed: false, id: 1212 }]);
     expect(result).toHaveLength(1);
     expect(localStorage.getItem('todos')).toEqual(
-      JSON.stringify([{ desc: 'study', completed: false, id: 1212 }])
+      JSON.stringify([{ desc: 'study', completed: false, id: 1212 }]),
     );
     expect(UI.displayTodos).toBeCalled();
     expect(UI.displayTodos).toBeCalledWith(Store.getTodos());
