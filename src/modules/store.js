@@ -13,6 +13,7 @@ class Store {
     todos.push(todo);
     localStorage.setItem('todos', JSON.stringify(todos));
     UI.displayTodos(todos);
+    return todos;
   };
 
   static removeTodo = (id) => {
@@ -20,6 +21,7 @@ class Store {
     todos = todos.filter((todo) => todo.id !== id);
     localStorage.setItem('todos', JSON.stringify(todos));
     UI.displayTodos(todos);
+    return todos;
   };
 
   static changeStateofToDos = (todos, { checked, id }) => todos.map((todo) => {
