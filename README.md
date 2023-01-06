@@ -22,12 +22,11 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 The Meal <a name="about-project"></a>
+# 📖 to-do0list <a name="about-project"></a>
 
-> In this project, a website for Meals is being build. The external API used for showing Meals and its details is [MealsDB API](https://www.themealdb.com/api.php). The webapp have 2 user interfaces.
+> In this project, a website for to do list is being build. The webapp have 1 user interface.
 
-- A home page showing a list of meals items that you can "like."
-- A popup window with more data about the meal that you can use to comment on it.
+- A home page showing a list of todos that you can mark it as it done or not done yet
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -79,7 +78,7 @@ To get a local copy up and running follow these simple example steps.
 -Reach to following Github URL:
 
 ```
-https://github.com/AhmedMohsen600/shopping.git
+https://github.com/AhmedMohsen600/to-do-list.git
 
 ```
 
@@ -90,7 +89,7 @@ https://github.com/AhmedMohsen600/shopping.git
 -Type git clone in the terminal, paste the URL you copied earlier, and press "enter" to create your local clone.
 
 ```
-$ git clone https://github.com/AhmedMohsen600/shopping.git
+$ git clone https://github.com/AhmedMohsen600/to-do-list.git
 ```
 
 # Install Dependencies(with following Command)
@@ -130,9 +129,9 @@ Clone this repository to your desired folder:
 
     _cd PATH_
 
-    _git clone https://github.com/AhmedMohsen600/shopping.git
+    _git clone https://github.com/AhmedMohsen600/to-do-list.git
 
-\_cd math-calc
+\_cd to-do-list
 
 _npm install_
 
